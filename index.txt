@@ -1,0 +1,39 @@
+Aquest és el codi HTML per a una simulació d'un circuit de F1. El codi està dividit en diferents parts:
+
+- La primera línia indica el tipus de document, que és HTML5.
+- La segona línia indica l'idioma del document, que és anglès.
+- La tercera línia obre l'element `<head>`, que conté informació sobre el document, com ara el títol i els metadades.
+- La quarta línia especifica la codificació de caràcters del document, que és UTF-8.
+- La cinquena línia indica el títol del document, que és F1 Circuit Simulation.
+- La sisena línia obre l'element `<style>`, que permet afegir estils CSS al document. Aquest element està buit, però es pot afegir codi CSS per millorar l'estètica de la pàgina.
+- La vuitena línia tanca l'element `<style>`.
+- La novena línia tanca l'element `<head>`.
+- La desena línia obre l'element `<body>`, que conté el contingut visible del document.
+- La onzena línia crea un element `<h1>` amb el text F1 Circuit Simulation. Aquest element representa un encapçalament de nivell 1.
+- La tretzena línia crea un element `<label>` amb el text Select Circuit:. Aquest element serveix per associar un text explicatiu amb un element de formulari, en aquest cas un element `<select>`.
+- La catorzena línia crea un element `<select>` amb l'atribut id="circuitSelect" i l'atribut onchange="changeCircuit()". Aquest element permet crear una llista desplegable amb diferents opcions. L'atribut id serveix per identificar de forma única l'element, i l'atribut onchange indica quina funció JavaScript s'ha d'executar quan es canvia la selecció.
+- Les línies 15 i 16 creen dos elements `<option>` amb els valors circuit1 i circuit2. Aquests elements representen les opcions disponibles a la llista desplegable. El valor de cada opció s'utilitzarà com a paràmetre per a la funció changeCircuit().
+- La divuitena línia tanca l'element `<select>`.
+- La dinovena línia crea un salt de línia amb l'element `<br>`.
+- La vintena línia crea un altre salt de línia amb l'element `<br>`.
+
+- Les línies 21 a 38 creen un element `<div>` amb l'atribut id="customizableSettingsCircuit1". Aquest element serveix per agrupar altres elements relacionats, en aquest cas els elements de formulari per personalitzar la carrera per al circuit 1. L'atribut id serveix per identificar de forma única l'element.
+- Les línies 22, 24, 26 i 28 creen quatre elements `<label>` amb els texts Lap Duration (seconds):, Number of Laps:, Yellow Ball 1 Color: i Green Ball 2 Color:. Aquests elements serveixen per associar un text explicatiu amb els elements de formulari corresponents.
+- Les línies 23, 25, 27 i 29 creen quatre elements `<input>` amb els atributs type="number", type="color", min="1" i value="5", "10", "#FFFF00" i "#008000". Aquests elements permeten introduir dades numèriques o de color pel temps per volta, el nombre de voltes i els colors de les boles. L'atribut type indica el tipus de dada que s'espera, l'atribut min indica el valor mínim permès i l'atribut value indica el valor predeterminat.
+- Les línies 30, 32, 34 i 36 creen quatre salts de línia amb l'element `<br>`.
+- La trenta-novena línia tanca l'element `<div>`.
+
+- Les línies 40 a 57 creen un altre element `<div>` amb l'atribut id="customizableSettingsCircuit2" i l'atribut style="display: none;". Aquest element serveix per agrupar altres elements relacionats, en aquest cas els elements de formulari per personalitzar la carrera per al circuit 2. L'atribut id serveix per identificar de forma única l'element, i l'atribut style indica l'estil CSS que s'aplica a l'element. En aquest cas, l'estil display: none; fa que l'element no sigui visible a la pàgina.
+- Les línies 41, 43, 45 i 47 creen quatre elements `<label>` amb els texts Lap Duration (seconds):, Number of Laps:, Yellow Ball 1 Color: i Green Ball 2 Color:. Aquests elements serveixen per associar un text explicatiu amb els elements de formulari corresponents.
+- Les línies 42, 44, 46 i 48 creen quatre elements `<input>` amb els atributs type="number", type="color", min="1" i value="5", "10", "#FFFF00" i "#008000". Aquests elements permeten introduir dades numèriques o de color pel temps per volta, el nombre de voltes i els colors de les boles. L'atribut type indica el tipus de dada que s'espera, l'atribut min indica el valor mínim permès i l'atribut value indica el valor predeterminat.
+- Les línies 49, 51, 53 i 55 creen quatre salts de línia amb l'element `<br>`.
+- La cinquanta-vuitena línia tanca l'element `<div>`.
+
+- La seixantena línia crea un element `<button>` amb l'atribut id="startButton" i l'atribut onclick="startRace()". Aquest element permet crear un botó que executa una funció JavaScript quan es fa clic. L'atribut id serveix per identificar de forma única l'element, i l'atribut onclick indica quina funció JavaScript s'ha d'executar. El text dins de l'element és Start Race.
+- La seixanta-unena línia crea un altre element `<button>` amb l'atribut id="stopButton", l'atribut onclick="stopRace()" i l'atribut disabled. Aquest element permet crear un botó que executa una funció JavaScript quan es fa clic. L'atribut id serveix per identificar de forma única l'element, i l'atribut onclick indica quina funció JavaScript s'ha d'executar. L'atribut disabled fa que el botó no sigui funcional fins que s'activi. El text dins de l'element és Stop Race.
+- La seixanta-dosena línia crea un salt de línia amb l'element `<br>`.
+- La seixanta-tresena línia crea un altre salt de línia amb l'element `<br>`.
+
+- Les línies 64 a 87 creen un element `<svg>` amb els atributs width="1500", height="600" i id="svgCircuit1". Aquest element permet crear gràfics vectorials escalables, en aquest cas el circuit 1. L'atribut width indica l'amplada del gràfic, l'atribut height indica l'alçada del gràfic i l'atribut id serveix per identificar de forma única l'element.
+- La seixanta-cinquena línia crea un element `<path>` amb els atributs id="circuit1", d="M100 250 C100 150 300 150 300 250 C300 350 500 350 500 250 C500 150 700 150 700 250 C700 350 900 350 900 250 L900 450 L100 450 Z", stroke="black", fill="transparent" i stroke-width="10". Aquest element permet crear una forma complexa amb una seqüència de punts i corbes. L'atribut id serveix per identificar de forma única l'element, i s'utilitzarà com a referència per a les animacions de les boles. L'atribut d indica els punts i les corbes que defineixen la forma. Els valors M, C i L indiquen els tipus de comandes, i els valors numèrics indiquen les coordenades dels punts. El valor Z indica que s'hauria de tancar la forma connectant el punt final amb el punt inicial. L'atribut stroke indica el color del contorn de la forma, que és negre. L'atribut fill indica el color de fons de la forma, que és transparent. L'atribut stroke-width indica el gruix del contorn de la forma, que és 10 píxels.
+- La se

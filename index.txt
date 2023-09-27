@@ -125,3 +125,31 @@ Aquest és el codi HTML per a una simulació d'un circuit de F1. El codi està d
     - La línia 154 desactiva els elements `<input>` dels circuits, afegint l'atribut disabled.
     - La línia 155 canvia els colors de les boles segons els valors dels elements `<input>` corresponents. Per fer-ho, assigna els valors de les variables yellowColor i greenColor als atributs fill dels elements `<circle>` corresponents.
     - La línia 156 crea un esdeveniment anomenat animating.begin i el dispara. Aquest esdeveniment farà que comencin les animacions de les boles, ja que tenen l'atribut begin="animating.begin".
+
+- La línia 158 defineix una altra funció anomenada stopRace, que s'executarà quan es faci clic al botó Stop Race. Aquesta funció farà el següent:
+    - La línia 159 cancel·la l'interval de temps que actualitza el temps per volta, utilitzant la variable lapInterval.
+    - La línia 160 desactiva el botó Stop Race, afegint l'atribut disabled.
+    - La línia 161 activa el botó Start Race, eliminant l'atribut disabled.
+    - La línia 162 activa la llista desplegable dels circuits, eliminant l'atribut disabled.
+    - La línia 163 activa els elements `<input>` dels circuits, eliminant l'atribut disabled.
+    - La línia 164 atura les animacions de les boles, assignant-los l'atribut begin="indefinite". Aquest valor fa que les animacions no comencin mai.
+
+- La línia 167 defineix una altra funció anomenada updateLapTime, que s'executarà cada segon quan hi hagi una carrera en marxa. Aquesta funció farà el següent:
+    - La línia 168 incrementa el valor de la variable lapTime en 1. Aquest valor representa el temps per volta en segons.
+    - La línia 169 mostra el valor de la variable lapTime a l'element `<div>` amb id="lapTime".
+    - La línia 170 comprova si el valor de la variable lapTime és múltiple del valor de la variable lapDuration. Si és així, significa que s'ha completat una volta i executa les instruccions següents:
+        - La línia 171 incrementa el valor de la variable lapCounter1 en 1. Aquest valor representa el nombre de voltes del circuit 1.
+        - La línia 172 mostra el valor de la variable lapCounter1 a l'element `<div>` amb id="lapCounter".
+        - La línia 173 comprova si el valor de la variable lapCounter1 és igual al valor de la variable numLaps. Si és així, significa que s'ha acabat la carrera i executa les instruccions següents:
+            - La línia 174 crida a la funció stopRace per aturar la carrera.
+            - La línia 175 mostra un missatge d'alerta amb el text "Race finished!".
+    - La línia 176 comprova si el valor de la variable lapTime és múltiple del doble del valor de la variable lapDuration. Si és així, significa que s'ha completat una volta i executa les instruccions següents:
+        - La línia 177 incrementa el valor de la variable lapCounter2 en 1. Aquest valor representa el nombre de voltes del circuit 2.
+        - La línia 178 mostra el valor de la variable lapCounter2 a l'element `<div>` amb id="lapCounter".
+        - La línia 179 comprova si el valor de la variable lapCounter2 és igual al valor de la variable numLaps. Si és així, significa que s'ha acabat la carrera i executa les instruccions següents:
+            - La línia 180 crida a la funció stopRace per aturar la carrera.
+            - La línia 181 mostra un missatge d'alerta amb el text "Race finished!".
+
+- La línia 183 tanca l'element `<script>`.
+- La línia 184 tanca l'element `<body>`.
+- La línia 185 tanca l'element `<html>`.

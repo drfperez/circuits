@@ -60,3 +60,54 @@ Aquest és el codi HTML per a una simulació d'un circuit de F1. El codi està d
 - La línia 78 tanca l'element `<circle>`.
 
 - La línia 79 tanca l'element `<svg>`.
+
+
+- La línia 81 crea un altre element `<circle>` amb l'atribut id="bola2_1" i l'atribut fill="yellow". Aquest element permet crear una forma circular amb un radi de 10 píxels i un color de fons groc. L'atribut id serveix per identificar de forma única l'element, i s'utilitzarà com a referència per a l'animació de la bola.
+
+- La línia 82 obre un altre element `<animateMotion>`, que permet crear una animació que mou un element al llarg d'un camí. Aquest element té els atributs id="animateYellow2_1", dur="5s", repeatCount="indefinite", begin="animating.begin" i fill="freeze". L'atribut id serveix per identificar de forma única l'element. L'atribut dur indica la durada de l'animació, que és 5 segons. L'atribut repeatCount indica el nombre de vegades que es repeteix l'animació, que és indefinit. L'atribut begin indica quan comença l'animació, que és quan es produeix un esdeveniment anomenat animating.begin. L'atribut fill indica què passa quan acaba l'animació, que és que es manté el valor final.
+
+- La línia 83 crea un altre element `<mpath>` amb l'atribut xlink:href="#circuit2". Aquest element permet especificar el camí al llarg del qual es mou l'element animat. L'atribut xlink:href fa referència a l'id d'un altre element, en aquest cas el `<path>` amb id="circuit2".
+
+- La línia 84 tanca l'element `<animateMotion>`.
+
+- La línia 85 tanca l'element `<circle>`.
+
+- La línia 87 crea un altre element `<circle>` amb l'atribut id="bola2_2" i l'atribut fill="green". Aquest element permet crear una forma circular amb un radi de 10 píxels i un color de fons verd. L'atribut id serveix per identificar de forma única l'element, i s'utilitzarà com a referència per a l'animació de la bola.
+
+- La línia 88 obre un altre element `<animateMotion>`, que permet crear una animació que mou un element al llarg d'un camí. Aquest element té els atributs id="animateGreen2_2", dur="10s", repeatCount="indefinite", begin="animating.begin" i fill="freeze". L'atribut id serveix per identificar de forma única l'element. L'atribut dur indica la durada de l'animació, que és 10 segons. L'atribut repeatCount indica el nombre de vegades que es repeteix l'animació, que és indefinit. L'atribut begin indica quan comença l'animació, que és quan es produeix un esdeveniment anomenat animating.begin. L'atribut fill indica què passa quan acaba l'animació, que és que es manté el valor final.
+
+- La línia 89 crea un altre element `<mpath>` amb l'atribut xlink:href="#circuit2". Aquest element permet especificar el camí al llarg del qual es mou l'element animat. L'atribut xlink:href fa referència a l'id d'un altre element, en aquest cas el `<path>` amb id="circuit2".
+
+- La línia 90 tanca l'element `<animateMotion>`.
+
+- La línia 91 tanca l'element `<circle>`.
+
+- La línia 92 tanca l'element `<svg>`.
+
+- La línia 94 crea un salt de línia amb l'element `<br>`.
+- La línia 95 crea un altre salt de línia amb l'element `<br>`.
+
+- La línia 96 crea un element `<div>` amb l'atribut id="lapCounter". Aquest element serveix per mostrar el comptador de voltes dels dos circuits. L'atribut id serveix per identificar de forma única l'element.
+- La línia 97 crea un altre element `<div>` amb l'atribut id="lapTime". Aquest element serveix per mostrar el temps per volta dels dos circuits. L'atribut id serveix per identificar de forma única l'element.
+
+- La línia 99 obre l'element `<script>`, que permet incloure codi JavaScript al document. Aquest codi s'executarà al navegador i controlarà la lògica de la simulació.
+- La línia 100 declara una variable lapCounter1 i li assigna el valor 0. Aquesta variable servirà per comptar el nombre de voltes del circuit 1.
+- La línia 101 declara una altra variable lapCounter2 i li assigna el valor 0. Aquesta variable servirà per comptar el nombre de voltes del circuit 2.
+- La línia 102 declara una altra variable lapTime i li assigna el valor 0. Aquesta variable servirà per mesurar el temps per volta dels dos circuits.
+- La línia 103 declara una altra variable lapInterval i no li assigna cap valor. Aquesta variable servirà per crear un interval de temps que actualitzi el temps per volta cada segon.
+- La línia 105 llegeix el valor de l'element `<select>` amb id="circuitSelect" i l'emmagatzema en una variable selectedCircuit. Aquest valor indicarà quin circuit s'ha seleccionat a la llista desplegable.
+- La línia 106 comprova si el valor de selectedCircuit és igual a "circuit1". Si és així, executa les instruccions següents:
+    - La línia 107 fa que l'element `<svg>` amb id="svgCircuit1" sigui visible a la pàgina, assignant-li l'estil display: block;.
+    - La línia 108 fa que l'element `<svg>` amb id="svgCircuit2" sigui invisible a la pàgina, assignant-li l'estil display: none;.
+- La línia 109 comprova si el valor de selectedCircuit és igual a "circuit2". Si és així, executa les instruccions següents:
+    - La línia 110 fa que l'element `<svg>` amb id="svgCircuit1" sigui invisible a la pàgina, assignant-li l'estil display: none;.
+    - La línia 111 fa que l'element `<svg>` amb id="svgCircuit2" sigui visible a la pàgina, assignant-li l'estil display: block;.
+
+- La línia 114 defineix una funció anomenada changeCircuit, que s'executarà quan es canviï la selecció de la llista desplegable. Aquesta funció farà el següent:
+    - La línia 115 llegeix el valor de l'element `<select>` amb id="circuitSelect" i l'emmagatzema en una variable selectedCircuit. Aquest valor indicarà quin circuit s'ha seleccionat a la llista desplegable.
+    - La línia 116 comprova si el valor de selectedCircuit és igual a "circuit1". Si és així, executa les instruccions següents:
+        - La línia 117 fa que l'element `<svg>` amb id="svgCircuit1" sigui visible a la pàgina, assignant-li l'estil display: block;.
+        - La línia 118 fa que l'element `<svg>` amb id="svgCircuit2" sigui invisible a la pàgina, assignant-li l'estil display: none;.
+    - La línia 119 comprova si el valor de selectedCircuit és igual a "circuit2". Si és així, executa les instruccions següents:
+        - La línia 120 fa que l'element `<svg>` amb id="svgCircuit1" sigui invisible a la pàgina, assignant-li l'estil display: none;.
+        - La línia 121 fa que l'element `<svg>` amb id="svgCircuit2" sigui visible a la pàgina, assignant-li l'estil display: block;.

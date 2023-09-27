@@ -1,4 +1,12 @@
 Aquest és el codi HTML per a una simulació d'un circuit de F1. El codi està dividit en diferents parts:
+Intentaré explicar-te els blocs de codi principals i com es relacionen entre si.
+
+- El bloc de codi que va des de la línia 3 fins a la línia 10 és l'element `<head>` que conté la informació general sobre el document, com ara el títol, la codificació de caràcters i l'estil. Aquest bloc no es mostra directament a la pàgina web, però afecta el seu funcionament i aparença.
+- El bloc de codi que va des de la línia 11 fins a la línia 86 és l'element `<body>` que conté el contingut visible de la pàgina web, com ara els textos, els botons, els menús desplegables i els elements gràfics. Aquest bloc es mostra a la pàgina web i permet a l'usuari interactuar amb ella.
+- El bloc de codi que va des de la línia 87 fins a la línia 195 és un script de JavaScript que s'executa al navegador i controla la lògica i el comportament de la pàgina web. Aquest bloc no es mostra a la pàgina web, però afecta el seu funcionament i dinamisme. Aquest bloc es relaciona amb el bloc anterior mitjançant els identificadors (`id`) dels elements HTML, que permeten accedir i modificar les seves propietats i esdeveniments.
+
+Per exemple, el script de JavaScript defineix una funció anomenada `changeCircuit()` que s'executa quan l'usuari canvia el valor del menú desplegable amb `id="circuitSelect"`. Aquesta funció modifica les propietats `style.display` dels elements HTML amb `id="customizableSettingsCircuit1"` i `id="customizableSettingsCircuit2"` per a mostrar o amagar els ajustos personalitzables de cada circuit. També modifica les propietats `style.display` dels elements SVG amb `id="svgCircuit1"` i `id="svgCircuit2"` per a mostrar o amagar els circuits gràfics.
+
 
 - La primera línia indica el tipus de document, que és HTML5.
 - La segona línia indica l'idioma del document, que és anglès.

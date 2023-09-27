@@ -36,4 +36,27 @@ Aquest és el codi HTML per a una simulació d'un circuit de F1. El codi està d
 
 - Les línies 64 a 87 creen un element `<svg>` amb els atributs width="1500", height="600" i id="svgCircuit1". Aquest element permet crear gràfics vectorials escalables, en aquest cas el circuit 1. L'atribut width indica l'amplada del gràfic, l'atribut height indica l'alçada del gràfic i l'atribut id serveix per identificar de forma única l'element.
 - La seixanta-cinquena línia crea un element `<path>` amb els atributs id="circuit1", d="M100 250 C100 150 300 150 300 250 C300 350 500 350 500 250 C500 150 700 150 700 250 C700 350 900 350 900 250 L900 450 L100 450 Z", stroke="black", fill="transparent" i stroke-width="10". Aquest element permet crear una forma complexa amb una seqüència de punts i corbes. L'atribut id serveix per identificar de forma única l'element, i s'utilitzarà com a referència per a les animacions de les boles. L'atribut d indica els punts i les corbes que defineixen la forma. Els valors M, C i L indiquen els tipus de comandes, i els valors numèrics indiquen les coordenades dels punts. El valor Z indica que s'hauria de tancar la forma connectant el punt final amb el punt inicial. L'atribut stroke indica el color del contorn de la forma, que és negre. L'atribut fill indica el color de fons de la forma, que és transparent. L'atribut stroke-width indica el gruix del contorn de la forma, que és 10 píxels.
-- La se
+
+- La línia 66 crea un element `<text>` amb els atributs x="100", y="500", font-size="20" i fill="black". Aquest element permet crear un text amb el contingut Montmeló Circuit. L'atribut x indica la posició horitzontal del text, l'atribut y indica la posició vertical del text, l'atribut font-size indica la mida de la lletra i l'atribut fill indica el color del text, que és negre.
+
+- La línia 68 crea un element `<circle>` amb l'atribut id="bola1_1" i l'atribut fill="yellow". Aquest element permet crear una forma circular amb un radi de 10 píxels i un color de fons groc. L'atribut id serveix per identificar de forma única l'element, i s'utilitzarà com a referència per a l'animació de la bola.
+
+- La línia 69 obre l'element `<animateMotion>`, que permet crear una animació que mou un element al llarg d'un camí. Aquest element té els atributs id="animateYellow1_1", dur="5s", repeatCount="indefinite", begin="animating.begin" i fill="freeze". L'atribut id serveix per identificar de forma única l'element. L'atribut dur indica la durada de l'animació, que és 5 segons. L'atribut repeatCount indica el nombre de vegades que es repeteix l'animació, que és indefinit. L'atribut begin indica quan comença l'animació, que és quan es produeix un esdeveniment anomenat animating.begin. L'atribut fill indica què passa quan acaba l'animació, que és que es manté el valor final.
+
+- La línia 70 crea un element `<mpath>` amb l'atribut xlink:href="#circuit1". Aquest element permet especificar el camí al llarg del qual es mou l'element animat. L'atribut xlink:href fa referència a l'id d'un altre element, en aquest cas el `<path>` amb id="circuit1".
+
+- La línia 71 tanca l'element `<animateMotion>`.
+
+- La línia 72 tanca l'element `<circle>`.
+
+- La línia 74 crea un altre element `<circle>` amb l'atribut id="bola1_2" i l'atribut fill="green". Aquest element permet crear una forma circular amb un radi de 10 píxels i un color de fons verd. L'atribut id serveix per identificar de forma única l'element, i s'utilitzarà com a referència per a l'animació de la bola.
+
+- La línia 75 obre un altre element `<animateMotion>`, que permet crear una animació que mou un element al llarg d'un camí. Aquest element té els atributs id="animateGreen1_2", dur="10s", repeatCount="indefinite", begin="animating.begin" i fill="freeze". L'atribut id serveix per identificar de forma única l'element. L'atribut dur indica la durada de l'animació, que és 10 segons. L'atribut repeatCount indica el nombre de vegades que es repeteix l'animació, que és indefinit. L'atribut begin indica quan comença l'animació, que és quan es produeix un esdeveniment anomenat animating.begin. L'atribut fill indica què passa quan acaba l'animació, que és que es manté el valor final.
+
+- La línia 76 crea un altre element `<mpath>` amb l'atribut xlink:href="#circuit1". Aquest element permet especificar el camí al llarg del qual es mou l'element animat. L'atribut xlink:href fa referència a l'id d'un altre element, en aquest cas el `<path>` amb id="circuit1".
+
+- La línia 77 tanca l'element `<animateMotion>`.
+
+- La línia 78 tanca l'element `<circle>`.
+
+- La línia 79 tanca l'element `<svg>`.

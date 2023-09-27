@@ -111,3 +111,17 @@ Aquest és el codi HTML per a una simulació d'un circuit de F1. El codi està d
     - La línia 119 comprova si el valor de selectedCircuit és igual a "circuit2". Si és així, executa les instruccions següents:
         - La línia 120 fa que l'element `<svg>` amb id="svgCircuit1" sigui invisible a la pàgina, assignant-li l'estil display: none;.
         - La línia 121 fa que l'element `<svg>` amb id="svgCircuit2" sigui visible a la pàgina, assignant-li l'estil display: block;.
+
+
+- La línia 124 defineix una altra funció anomenada startRace, que s'executarà quan es faci clic al botó Start Race. Aquesta funció farà el següent:
+    - La línia 126 llegeix el valor de l'element `<select>` amb id="circuitSelect" i l'emmagatzema en una variable selectedCircuit. Aquest valor indicarà quin circuit s'ha seleccionat a la llista desplegable.
+    - Les línies 128 a 139 llegeixen els valors dels elements `<input>` corresponents al circuit seleccionat i els emmagatzemen en les variables lapDuration, numLaps, yellowColor i greenColor. Aquests valors indicaran el temps per volta, el nombre de voltes i els colors de les boles per a la carrera.
+    - Les línies 141 a 144 calculen les durades de les animacions de les boles basant-se en el temps per volta i el circuit seleccionat. La bola groga tindrà la mateixa durada que el temps per volta, mentre que la bola verda tindrà el doble o la meitat de durada, depenent del circuit. A continuació, assignen aquests valors als atributs dur dels elements `<animateMotion>` corresponents.
+    - Les línies 146 a 149 actualitzen els comptadors de voltes i el temps per volta, assignant-los el valor 0. A continuació, mostren aquests valors a l'element `<div>` amb id="lapCounter" i a l'element `<div>` amb id="lapTime".
+    - La línia 150 crea un interval de temps que s'executarà cada segon i cridarà a una funció anomenada updateLapTime. Aquest interval servirà per actualitzar el temps per volta cada segon i emmagatzemar-lo en la variable lapInterval.
+    - La línia 151 activa el botó Stop Race, eliminant l'atribut disabled.
+    - La línia 152 desactiva el botó Start Race, afegint l'atribut disabled.
+    - La línia 153 desactiva la llista desplegable dels circuits, afegint l'atribut disabled.
+    - La línia 154 desactiva els elements `<input>` dels circuits, afegint l'atribut disabled.
+    - La línia 155 canvia els colors de les boles segons els valors dels elements `<input>` corresponents. Per fer-ho, assigna els valors de les variables yellowColor i greenColor als atributs fill dels elements `<circle>` corresponents.
+    - La línia 156 crea un esdeveniment anomenat animating.begin i el dispara. Aquest esdeveniment farà que comencin les animacions de les boles, ja que tenen l'atribut begin="animating.begin".

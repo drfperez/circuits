@@ -11,9 +11,3 @@ Algunes possibles millores que es podrien fer al codi CSS són:
 - Afegir un atribut `font-family` per especificar la família de tipus de lletra que es vol utilitzar per al codi. Per exemple, `font-family: monospace;` faria que el codi s'escrivís amb una tipografia monoespaiada, on tots els caràcters tenen la mateixa amplada.
 - Afegir un atribut `overflow-x: auto;` per afegir una barra de desplaçament horitzontal si el codi supera l'amplada del bloc. Això evitaria que el codi es trenqués en línies diferents i facilitaria la seva lectura.
 - Afegir un atribut `color` per canviar el color del text del codi. Per exemple, `color: #333;` faria que el text fos de color gris fosc (#333), en contrast amb el fons clar.
-
-Source: Conversation with Bing, 27/9/2023
-(1) CSS Tutorial - W3Schools. https://www.w3schools.com/Css/.
-(2) CSS: Cascading Style Sheets | MDN - MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS.
-(3) CSS Introduction - GeeksforGeeks. https://www.geeksforgeeks.org/css-introduction/.
-(4) Intro to HTML/CSS: Making webpages - Khan Academy. https://www.khanacademy.org/computing/computer-programming/html-css.

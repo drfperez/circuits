@@ -12,6 +12,9 @@ Les altres funcions que defineix el script de JavaScript són:
 - La funció `startRace()` que s'executa quan l'usuari prem el botó amb `id="startButton"`. Aquesta funció comença la simulació de la carrera segons el circuit seleccionat i els ajustos personalitzats. Per a fer-ho, modifica les propietats `dur` dels elements `<animateMotion>` amb `id="animateYellow1_1"`, `id="animateGreen1_2"`, `id="animateYellow2_1"` i `id="animateGreen2_2"` per a ajustar la durada de cada volta segons el valor dels elements `<input>` amb `id="lapDuration1"` i `id="lapDuration2"`. També modifica les propietats `repeatCount` dels elements `<animateMotion>` per a ajustar el nombre de voltes segons el valor dels elements `<input>` amb `id="numLaps1"` i `id="numLaps2"`. A més, modifica les propietats `fill` dels elements `<circle>` amb `id="bola1_1"`, `id="bola1_2"`, `id="bola2_1"` i `id="bola2_2"` per a canviar el color de les boles segons el valor dels elements `<input>` amb `id="yellowColor1"`, `id="greenColor1"`, `id="yellowColor2"` i `id="greenColor2"`. Finalment, activa l'animació dels elements `<circle>` mitjançant l'element `<set>` amb `id="animating"` i desactiva el botó d'inici i activa el botó de parada.
 
 - La funció `stopRace()` que s'executa quan l'usuari prem el botó amb `id="stopButton"`. Aquesta funció atura la simulació de la carrera segons el circuit seleccionat. Per a fer-ho, desactiva l'animació dels elements `<circle>` mitjançant l'element `<set>` amb `id="animating"` i activa el botó d'inici i desactiva el botó de parada.
+
+
+A continuació, estimats alumnes, us ho explico línia a línia:
 - La primera línia indica el tipus de document, que és HTML5.
 - La segona línia indica l'idioma del document, que és anglès.
 - La tercera línia obre l'element `<head>`, que conté informació sobre el document, com ara el títol i els metadades.

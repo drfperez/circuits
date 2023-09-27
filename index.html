@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Circuit Simulation</title>
+    <style>
+        /* Add your CSS styles here for better aesthetics */
+    </style>
+</head>
+<body>
+    <h1>F1 Circuit Simulation</h1>
+
+    <!-- Circuit Selection Dropdown -->
+    <label for="circuitSelect">Select Circuit:</label>
+    <select id="circuitSelect" onchange="changeCircuit()">
+        <option value="circuit1">Circuit 1</option>
+        <option value="circuit2">Circuit 2</option>
+    </select><br><br>
+
+    <!-- Customizable Race Settings for Circuit 1 -->
+    <div id="customizableSettingsCircuit1">
+        <label for="lapDuration1">Lap Duration (seconds):</label>
+        <input type="number" id="lapDuration1" min="1" value="5"><br>
+
+        <label for="numLaps1">Number of Laps:</label>
+        <input type="number" id="numLaps1" min="1" value="10"><br>
+
+        <label for="yellowColor1">Yellow Ball 1 Color:</label>
+        <input type="color" id="yellowColor1" value="#FFFF00"><br>
+
+        <label for="greenColor1">Green Ball 2 Color:</label>
+        <input type="color" id="greenColor1" value="#008000"><br>
+    </div>
+
+    <!-- Customizable Race Settings for Circuit 2 -->
+    <div id="customizableSettingsCircuit2" style="display: none;">
+        <label for="lapDuration2">Lap Duration (seconds):</label>
+        <input type="number" id="lapDuration2" min="1" value="5"><br>
+
+        <label for="numLaps2">Number of Laps:</label>
+        <input type="number" id="numLaps2" min="1" value="10"><br>
+
+        <label for="yellowColor2">Yellow Ball 1 Color:</label>
+        <input type="color" id="yellowColor2" value="#FFFF00"><br>
+
+        <label for="greenColor2">Green Ball 2 Color:</label>
+        <input type="color" id="greenColor2" value="#008000"><br>
+    </div>
+
+    <button id="startButton" onclick="startRace()">Start Race</button>
+    <button id="stopButton" onclick="stopRace()" disabled>Stop Race</button><br><br>
+
+    <!-- SVG elements for Circuit 1 -->
+    <svg width="1500" height="600" id="svgCircuit1" style="display: block;">
+        <!-- Circuit 1 Path -->
+        <path id="circuit1" d="M100 250 C100 150 300 150 300 250 C300 350 500 350 500 250 C500 150 700 150 700 250 C700 350 900 350 900 250 L900 450 L100 450 Z" stroke="black" fill="transparent" stroke-width="10" />
+        <text x="100" y="500" font-size="20" fill="black">Montmeló Circuit</text>
+        
+
+        <!-- Yellow Ball 1 for Circuit 1 -->
+        <circle id="bola1_1" r="10" fill="yellow">
+            <animateMotion id="animateYellow1_1" dur="5s" repeatCount="indefinite" begin="animating.begin" fill="freeze">
+                <mpath xlink:href="#circuit1" />
+            </animateMotion>
+        </circle>
+
+        <!-- Green Ball 2 for Circuit 1 -->
+        <circle id="bola1_2" r="10" fill="green">
+            <animateMotion id="animateGreen1_2" dur="10s" repeatCount="indefinite" begin="animating.begin" fill="freeze">
+                <mpath xlink:href="#circuit1" />
+            </animateMotion>
+        </circle>
+    </svg>
+
+    <!-- SVG elements for Circuit 2 -->
+    <svg width="1500" height="600" id="svgCircuit2" style="display: none;">
+        <!-- Circuit 2 Path -->
+        <path id="circuit2" d="M100 200 C100 100 300 100 300 200 C300 300 500 300 500 200 S700 100 700 200 L700 400 L100 400 Z" stroke="black" fill="transparent" stroke-width="10" />
+<text x="100" y="500" font-size="20" fill="black">Monza Circuit</text>
+
+        <!-- Yellow Ball 1 for Circuit 2 -->
+        <circle id="bola2_1" r="10" fill="yellow">
+            <animateMotion id="animateYellow2_1" dur="5s" repeatCount="indefinite" begin="animating.begin" fill="freeze">
+                <mpath xlink:href="#circuit2" />
+            </animateMotion>
+        </circle>
+        <!-- Green Ball 2 for Circuit 2 -->
+        <circle id="bola2_2" r="10" fill="green">
+            <animateMotion id="animateGreen2_2" dur="10s" repeatCount="indefinite" begin="animating.begin" fill="freeze">
+                <mpath xlink:href="#circuit2" />
+            </animateMotion>
+        </circle>
+    </svg>
+
+    <br><br>
+    <div id="lapCounter"></div>
+    <div id="lapTime"></div>
+
+    <script>
+        var lapCounter1 = 0;
+        var lapCounter2 = 0;
+        var lapTime = 0;
+        var lapInterval;
+   
+        // Initial visibility based on the selected circuit
+        var selectedCircuit = document.getElementById("circuitSelect").value;
+        if (selectedCircuit === "circuit1") {
+            document.getElementById("svgCircuit1").style.display = "block";
+            document.getElementById("svgCircuit2").style.display = "none";
+        } else if (selectedCircuit === "circuit2") {
+            document.getElementById("svgCircuit1").style.display = "none";
+            document.getElementById("svgCircuit2").style.display = "block";
+        }
+
+        // Show/hide circuits based on the selected circuit
+        function changeCircuit() {
+            var selectedCircuit = document.getElementById("circuitSelect").value;
+
+            if (selectedCircuit === "circuit1") {
+                document.getElementById("svgCircuit1").style.display = "block";
+                document.getElementById("svgCircuit2").style.display = "none";
+            } else if (selectedCircuit === "circuit2") {
+                document.getElementById("svgCircuit1").style.display = "none";
+                document.getElementById("svgCircuit2").style.display = "block";
+            }
+        }
+        
+function startRace() {
+            // Read selected circuit
+            var selectedCircuit = document.getElementById("circuitSelect").value;
+
+            // Read customizable settings for the selected circuit
+            var lapDuration, numLaps, yellowColor, greenColor;
+            if (selectedCircuit === "circuit1") {
+                lapDuration = parseInt(document.getElementById("lapDuration1").value, 10);
+                numLaps = parseInt(document.getElementById("numLaps1").value, 10);
+                yellowColor = document.getElementById("yellowColor1").value;
+                greenColor = document.getElementById("greenColor1").value;
+            } else if (selectedCircuit === "circuit2") {
+                lapDuration = parseInt(document.getElementById("lapDuration2").value, 10);
+                numLaps = parseInt(document.getElementById("numLaps2").value, 10);
+                yellowColor = document.getElementById("yellowColor2").value;
+                greenColor = document.getElementById("greenColor2").value;
+            }
+
+            // Set animation durations based on selected circuit
+            var yellowBallDuration = selectedCircuit === "circuit1" ? lapDuration : lapDuration * 2;
+            var greenBallDuration = selectedCircuit === "circuit1" ? lapDuration * 2 : lapDuration;
+            document.getElementById("animateYellow1_1").setAttribute("dur", yellowBallDuration + "s");
+            document.getElementById("animateGreen1_2").setAttribute("dur", greenBallDuration + "s");
+            document.getElementById("animateYellow2_1").setAttribute("dur", yellowBallDuration + "s");
+            document.getElementById("animateGreen2_2").setAttribute("dur", greenBallDuration + "s");
+
+            // Update lap counters
+            lapCounter1 = 0;
+            lapCounter2 = 0;
+            lapTime = 0;
+            document.getElementById("lapCounter").innerHTML = "Number of laps - Circuit 1: " + lapCounter1 + ", Circuit 2: " + lapCounter2;
+            document.getElementById("lapTime").innerHTML = "Lap time: " + formatTime(lapTime);
+            document.getElementById("startButton").disabled = true;
+            document.getElementById("stopButton").disabled = false;
+      // Apply ball colors
+            document.getElementById("bola1_1").setAttribute("fill", yellowColor);
+            document.getElementById("bola1_2").setAttribute("fill", greenColor);
+            document.getElementById("bola2_1").setAttribute("fill", yellowColor);
+            document.getElementById("bola2_2").setAttribute("fill", greenColor);
+
+            // Show/hide selected circuit's SVG
+            if (selectedCircuit === "circuit1") {
+                document.getElementById("svgCircuit1").style.display = "block";
+                document.getElementById("svgCircuit2").style.display = "none";
+            } else if (selectedCircuit === "circuit2") {
+                document.getElementById("svgCircuit1").style.display = "none";
+                document.getElementById("svgCircuit2").style.display = "block";
+            }
+
+            // Start animations
+            document.getElementById("animateYellow1_1").beginElement();
+            document.getElementById("animateGreen1_2").beginElement();
+            document.getElementById("animateYellow2_1").beginElement();
+            document.getElementById("animateGreen2_2").beginElement();
+
+            lapInterval = setInterval(function () {
+                lapTime++;
+                document.getElementById("lapTime").innerHTML = "Lap time: " + formatTime(lapTime);
+
+                // Check if the balls have completed laps
+                if (lapTime % lapDuration === 0) {
+                    lapCounter1++;
+                }
+                if (lapTime % (lapDuration * 2) === 0) {
+                    lapCounter2++;
+                }
+
+                document.getElementById("lapCounter").innerHTML = "Number of laps - Circuit 1: " + lapCounter1 + ", Circuit 2: " + lapCounter2;
+
+                // Check if the race is complete
+                if (lapCounter1 >= numLaps || lapCounter2 >= numLaps) {
+                    stopRace();
+                }
+            }, 1000);
+        }
+
+        function stopRace() {
+            clearInterval(lapInterval);
+            document.getElementById("startButton").disabled = false;
+            document.getElementById("stopButton").disabled = true;
+
+            // Stop animations
+            document.getElementById("animateYellow1_1").endElement();
+            document.getElementById("animateGreen1_2").endElement();
+            document.getElementById("animateYellow2_1").endElement();
+            document.getElementById("animateGreen2_2").endElement();
+        }
+
+        function formatTime(time) {
+            var minutes = Math.floor(time / 60);
+            var seconds = time % 60;
+            return minutes + "m " + seconds + "s";
+        }
+
+    </script>
+    
+</body>
+</html>

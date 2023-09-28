@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Títol de la pàgina -->
+    <title>Copia Contingut al Porta-retalls</title>
+    
+    <!-- Enllaç a la fulla d'estils de Font Awesome a través d'un CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Estils CSS addicionals -->
+    <style>
+        /* Estil per als contenidors dels elements <pre> */
+        .copyable-pre {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Estil per a les icones de còpia */
+        .copy-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Primer element <pre> amb la classe "copyable-pre" -->
+    <pre class="copyable-pre">
+        Contingut del primer pre...
+        <i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i>
+    </pre>
+
+    <!-- Segon element <pre> amb la classe "copyable-pre" -->
+    <pre class="copyable-pre">
+        Contingut del segon pre...
+        <i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i>
+    </pre>
+
+    <!-- Pots afegir més elements <pre> amb la classe "copyable-pre" aquí -->
+
+    <script>
+        // Funció per copiar el contingut d'un <pre> al porta-retalls
+        function copyToClipboard(iconElement) {
+            var preElement = iconElement.parentElement; // Obtenim l'element pare del botó d'ícona
+            var textArea = document.createElement("textarea"); // Creem un element de text temporal
+            textArea.value = preElement.textContent; // Assignem el contingut del <pre> al text temporal
+            document.body.appendChild(textArea); // Afegim l'element de text al cos de la pàgina
+            textArea.select(); // Seleccionem el contingut del text
+            document.execCommand("copy"); // Copiem el contingut al porta-retalls
+            document.body.removeChild(textArea); // Eliminem l'element de text temporal
+            alert("Contingut copiat al Porta-retalls!"); // Mostrem un missatge d'alerta
+        }
+    </script>
+</body>
+</html>
